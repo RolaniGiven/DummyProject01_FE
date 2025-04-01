@@ -1,0 +1,39 @@
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+
+/* Center elements using flexbox */
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5;
+    font-family: Arial, sans-serif;
+}
+
+/* Center text content */
+.text-center {
+    text-align: center;
+}
+
+/* Utility class for centering containers */
+.center-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* Center elements horizontally */
+.horizontal-center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* For centering images or blocks */
+.center-block {
+    display: block;
+    margin: 0 auto;
+}
