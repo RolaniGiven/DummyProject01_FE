@@ -1,4 +1,4 @@
-<main class="main">
+<!-- <main class="main">
     <div class="content">
       <h1> Todos </h1>
       <form class="row g-3" >
@@ -7,10 +7,72 @@
             <button class="btn btn-outline-secondary" type="button" id="add-btn">Add</button>
         </div>
         <ul class="list-group">
-            <li class="list-group-item">Task 1</li>
-            <li class="list-group-item">Task 2</li>
+            <li class="list-group-item" *ngFor="let todo of todos; let i = index">{{todo.title}}</li>
+            
         </ul>
         <label for="floatingPassword">2 task</label>
       </form>
     </div>
+</main> -->
+
+<main class="main">
+  <div class="content">
+      <h1>Todos</h1>
+      <form class="row g-3" (ngSubmit)="addTodo()">
+          <div class="input-group mb-3">
+              <input 
+                  type="text" 
+                  class="form-control" 
+                  placeholder="Add a task" 
+                  [(ngModel)]="newTodoName"
+                  name="newTodoName"
+                  (keyup.enter)="addTodo()"
+              >
+              <button 
+                  class="btn btn-outline-secondary" 
+                  type="button" 
+                  id="add-btn"
+                  (click)="addTodo()"
+              >
+                  Add
+              </button>
+          </div>
+
+          <ul class="list-group">
+              <li class="list-group-item d-flex justify-content-between align-items-center" 
+                  *ngFor="let todo of todos; let i = index"
+              >
+                  <div class="form-check">
+                      <input 
+                          class="form-check-input" 
+                          type="checkbox" 
+                          [checked]="todo.complete"
+                          (change)="toggleComplete(todo)"
+                          [id]="'todo-' + i"
+                      >
+                      <label 
+                          class="form-check-label" 
+                          [for]="'todo-' + i"
+                          [ngClass]="{'text-decoration-line-through': todo.complete}"
+                      >
+                          {{todo.name}}
+                      </label>
+                  </div>
+                  <button 
+                      class="btn btn-danger btn-sm"
+                      (click)="deleteTodo(todo.id!)"
+                  >
+                      Delete
+                  </button>
+              </li>
+          </ul>
+
+          <div class="text-muted">
+              {{ todos.length }} task{{ todos.length !== 1 ? 's' : '' }}
+          </div>
+      </form>
+  </div>
 </main>
+
+
+

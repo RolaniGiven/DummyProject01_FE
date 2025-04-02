@@ -4,6 +4,7 @@ import { MyTodosComponent } from '../app/my-todos/my-todos.component'
 
 @Component({
   selector: 'app-root',
+  standalone: true,
   imports: [RouterOutlet, MyTodosComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
